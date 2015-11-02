@@ -13,7 +13,7 @@ RUN yum -y update && \
 		libcurl-devel \
 		libxml2-devel \
 		git \
-		R-3.2.2-1 && \
+		R-3.2.2 && \
 	yum clean all
 
 # Create html folder under the R directory (name of directory depends on version) - required for some R packages

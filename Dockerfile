@@ -13,6 +13,8 @@ RUN yum -y update && \
 		libcurl-devel \
 		libxml2-devel \
 		git \
+		ed \
+		tar \
 		R-3.2.2 && \
 	yum clean all
 

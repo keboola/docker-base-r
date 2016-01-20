@@ -1,4 +1,4 @@
-# VERSION 1.0.1
+# VERSION 1.0.2
 FROM keboola/base
 MAINTAINER Ondrej Popelka <ondrej.popelka@keboola.com>
 

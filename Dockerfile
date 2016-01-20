@@ -12,6 +12,7 @@ RUN yum -y update && \
 		libcurl \
 		libcurl-devel \
 		libxml2-devel \
+		glibc-common \
 		git \
 		ed \
 		tar \

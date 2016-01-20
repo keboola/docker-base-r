@@ -20,4 +20,7 @@ RUN yum -y update && \
 	yum clean all
 
 # Create html folder under the R directory (name of directory depends on version) - required for some R packages
-RUN find /usr/share/doc/ -name R* -exec mkdir '{}/html' \;
+RUN find /usr/share/doc/ -name 'R*' -exec mkdir '{}/html' \;
+
+# Set default R locale to UTF8
+ENV LANG en_US.UTF-8

@@ -16,7 +16,7 @@ RUN yum -y update && \
 		git \
 		ed \
 		tar \
-		R-3.2.2 && \
+		R-3.2.3 && \
 	yum clean all
 
 # Create html folder under the R directory (name of directory depends on version) - required for some R packages

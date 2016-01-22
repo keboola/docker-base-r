@@ -53,5 +53,5 @@ RUN rm -rf /usr/local/src/R/R-${R_VERSION}/src \
  	&& ln -s /usr/local/src/R/R-${R_VERSION}/bin/R /usr/local/src/R/R \ 
  	&& ln -s /usr/local/src/R/R-${R_VERSION}/bin/Rscript /usr/local/src/R/Rscript \ 
 	&& mkdir /usr/share/doc/R-${R_VERSION} \
-	&& echo 'options(repos = c(CRAN = "https://cran.r-project.org", "https://cran.rstudio.com/", "https://mirrors.nics.utk.edu/cran/", "https://cran.mtu.edu/"))' >> ${R_HOME}/etc/Rprofile.site 
+	&& echo 'options(repos = c(CRAN = "https://cran.r-project.org", "https://cran.rstudio.com/", "https://mirrors.nics.utk.edu/cran/", "https://cran.mtu.edu/"))' >> ${R_HOME}/etc/Rprofile.site \
 	&& echo 'options(download.file.method = "libcurl")' >> ${R_HOME}/etc/Rprofile.site 

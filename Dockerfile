@@ -51,5 +51,6 @@ RUN rm -rf /usr/local/src/R/R-${R_VERSION}/src \
  	&& ln -s /usr/local/src/R/R-${R_VERSION}/bin/Rscript /usr/local/src/R/Rscript \ 
 	&& mkdir /usr/share/doc/R-${R_VERSION} \
 	&& mkdir /etc/R \
-	&& PATH=/usr/local/src/R:$PATH \
 	&& echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"), download.file.method = "libcurl")' >> /etc/R/Rprofile.site 
+
+ENV PATH=/usr/local/src/R:$PATH

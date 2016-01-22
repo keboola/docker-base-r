@@ -44,13 +44,15 @@ RUN mkdir /usr/local/src/R \
 	&& make \
 	&& make check 
 
+ENV R_HOME=/usr/local/src/R/R-${R_VERSION}
+ENV PATH=/usr/local/src/R:$PATH
+
 # Cleanup, Setup
 RUN rm -rf /usr/local/src/R/R-${R_VERSION}/src \
  	&& rm -f R /usr/local/src/R/Rscript R-${R_VERSION}.tar.gz \ 
  	&& ln -s /usr/local/src/R/R-${R_VERSION}/bin/R /usr/local/src/R/R \ 
  	&& ln -s /usr/local/src/R/R-${R_VERSION}/bin/Rscript /usr/local/src/R/Rscript \ 
 	&& mkdir /usr/share/doc/R-${R_VERSION} \
-	&& mkdir /etc/R \
-	&& echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"), download.file.method = "libcurl")' >> /etc/R/Rprofile.site 
-
-ENV PATH=/usr/local/src/R:$PATH
+	&& mkdir ${R_HOME}/etc/ \
+	&& echo 'options(repos = c(CRAN = "https://cran.r-project.org", "https://cran.rstudio.com/", "https://mirrors.nics.utk.edu/cran/", "https://cran.mtu.edu/"))' >> ${R_HOME}/etc/Rprofile.site 
+	&& echo 'options(download.file.method = "libcurl")' >> ${R_HOME}/etc/Rprofile.site 

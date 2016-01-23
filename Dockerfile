@@ -25,6 +25,7 @@ RUN yum -y update \
  		make \
  		readline-devel \        
  		which \ 
+ 		unzip \
 		texlive-collection-basic \
 		texlive-collection-fontsrecommended \
 		texlive-collection-htmlxml \ 

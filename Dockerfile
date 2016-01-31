@@ -38,10 +38,10 @@ RUN yum -y update \
 # Build R
 RUN mkdir /usr/local/src/R \
 	&& cd /usr/local/src/R \
- 	&& curl -O http://cran.utstat.utoronto.ca/src/base/R-3/R-${R_VERSION}.tar.gz \
+ 	&& curl -O https://cran.r-project.org/src/base/R-3/R-${R_VERSION}.tar.gz \
  	&& tar xzvf R-${R_VERSION}.tar.gz \
  	&& cd R-${R_VERSION} \ 
-	&& ./configure --with-x=no \
+	&& ./configure --with-x=no --enable-R-shlib \
 	&& make \
 	&& make check 
 

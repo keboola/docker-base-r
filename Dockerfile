@@ -36,6 +36,9 @@ RUN yum -y update \
         libX11-devel \
         libXt-devel \
         cairo-devel \
+        libXmu-devel \
+        pango-devel \
+        libjpeg-turbo-devel \
     && yum clean all
 
 # Build R
@@ -44,7 +47,7 @@ RUN mkdir /usr/local/src/R \
     && curl -O https://cran.r-project.org/src/base/R-3/R-${R_VERSION}.tar.gz \
     && tar xzvf R-${R_VERSION}.tar.gz \
     && cd R-${R_VERSION} \ 
-    && ./configure --with-x=no --enable-R-shlib \
+    && ./configure --with-x=yes --enable-R-shlib \
     && make \
     && make check 
 

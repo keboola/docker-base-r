@@ -39,6 +39,7 @@ RUN yum -y update \
         libXmu-devel \
         pango-devel \
         libjpeg-turbo-devel \
+        perl-Data-Dumper \
     && yum clean all
 
 # Build R

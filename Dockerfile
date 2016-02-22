@@ -40,6 +40,7 @@ RUN yum -y update \
         pango-devel \
         libjpeg-turbo-devel \
         perl-Data-Dumper \
+        gsl-devel \
     && yum clean all
 
 # Build R

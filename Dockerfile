@@ -2,7 +2,7 @@ FROM keboola/base
 MAINTAINER Ondrej Popelka <ondrej.popelka@keboola.com>
 
 # Package version to install
-ENV R_VERSION 3.2.1
+ENV R_VERSION 3.2.5
 # Set default R locale to UTF8
 ENV LANG en_US.UTF-8
 

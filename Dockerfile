@@ -6,9 +6,10 @@ ENV R_BASE_VERSION 3.3.2
 WORKDIR /tmp
 
 # Install packages
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
         ca-certificates \
+        curl \
         ed \
         fonts-texgyre \
         g++ \
@@ -18,6 +19,7 @@ RUN apt-get install -y --no-install-recommends \
         git \
         libgsl0-dev \
         default-jdk \
+        libbz2-dev \
         libcairo2-dev \
         libcurl4-openssl-dev \
         libjpeg-dev \
@@ -44,8 +46,6 @@ RUN apt-get install -y --no-install-recommends \
         wget \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y --no-install-recommends curl libbz2-dev
-
 ## Configure default locale, see https://github.com/rocker-org/rocker/issues/19
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
     && locale-gen en_US.utf8 \
@@ -53,16 +53,6 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
 
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
-
-## Install Bzip
-# RUN curl -OfsS http://www.bzip.org/1.0.6/bzip2-1.0.6.tar.gz \
-#     && tar xzvf bzip2-1.0.6.tar.gz \
-#     && cd bzip2-1.0.6 \
-#     && make -f Makefile-libbz2_so \
-#     && make clean \
-#     && make \
-#     && make -n install PREFIX=$HOME/packages \
-#     && make install PREFIX=$HOME/packages
 
 # Build R
 RUN mkdir /usr/local/src/R \

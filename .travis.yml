@@ -3,7 +3,7 @@ language: bash
 services:
   - docker
 script: 
-  - docker build -t docker-base-r .
+  - docker build -t keboola/docker-base-r .
 after_success:
   - docker images
 deploy:

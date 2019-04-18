@@ -2,7 +2,6 @@ FROM rocker/r-ver:3.5.3
 
 ENV PATH /usr/local/lib/R/bin/:$PATH
 ENV R_HOME /usr/local/lib/R
-ARG GITHUB_PAT
 
 WORKDIR /tmp
 

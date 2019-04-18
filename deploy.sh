@@ -1,8 +1,9 @@
 #!/bin/bash
+set -e
 
 docker login -u="$QUAY_USERNAME" -p="$QUAY_PASSWORD" quay.io
-docker tag keboola/docker-base-r quay.io/keboola/docker-base-r:$TRAVIS_TAG
-docker tag keboola/docker-base-r quay.io/keboola/docker-base-r:latest
+docker tag ${KBC_APP_REPOSITORY} quay.io/${KBC_APP_REPOSITORY}:${TRAVIS_TAG}
+docker tag ${KBC_APP_REPOSITORY} quay.io/${KBC_APP_REPOSITORY}:latest
 docker images
-docker push quay.io/keboola/docker-base-r:$TRAVIS_TAG
-docker push quay.io/keboola/docker-base-r:latest
+docker push quay.io/${KBC_APP_REPOSITORY}:${TRAVIS_TAG}
+docker push quay.io/${KBC_APP_REPOSITORY}:latest

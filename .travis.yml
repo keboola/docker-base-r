@@ -1,14 +1,18 @@
 sudo: required
 language: bash
 services:
-  - docker
-script: 
-  - docker build -t keboola/docker-base-r .
+- docker
+script:
+- docker build --build-arg GITHUB_PAT -t keboola/docker-custom-r .
 after_success:
-  - docker images
+- docker images
 deploy:
   provider: script
   skip_cleanup: true
-  script: ./deploy.sh
+  script: "./deploy.sh"
   on:
-    tags: true  
+    tags: true
+notifications:
+  slack:
+    secure: GGFj+avNI2f1wm2/6hwrZNkeSS46Wx9JuhUTbZGFdzqg9gB36h8VOoQG7OKbwM+CHbAJb/JgcjuYgBjBuW1ivO8cQjqOLKMAnXweLLwVkhRe9gWjmMs7zMvXrWBF32hoiIBwtkj0NH2IZ05GfAX+4V5N03UqIcER1rHXuh0FluG8VixOxUzJ+imZ79wC0H+KCM481VuxeWL62UH+SmhUrGCSnVuFEWXjMTC5q6qNChkqA0BWfCOEl8NJi9OwCyF9e+11rsgAxRvr9gIxvDiBRhL/CXFYP8crffR6KS69sxuqPBvcTK8eXsT0G//ykOKDnnugQDVtxRy6NIcMpGykxt7NrTGEsexsAyyCPc+wEX0TifW0v/WenI2VGrst+7q8L6LV5KQDkNcpFTli555YpDaoOXPrBL+GhxoIL9QJhwtwTjCEZdxreI1ltCQf61u8o8oydJd6vri/gIju5AuBMq1RCA6XPZiqUkIGYpKC8xki1QNwLKZqkiSFOFcaIDrdcDKbyTG4GkbWaf78gTogAcmrFzvyclMa4WduncP8J6SSKrCvl7oTyUdYYuzrBaoTIFBP7AzMRAF13ooyhZLFOjHvO9o6TCGqDX+NzOBujMBE6Ttl6aUyO1/51ohddnC30Dl4GmLFbTMv3RJsT3m+PrVdj9q0+/V5q4E9X47VIyQ=
+  email: false

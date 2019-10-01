@@ -1,4 +1,4 @@
-FROM rocker/r-ver:3.5.3
+FROM rocker/r-ver:3.6.1
 
 ENV PATH /usr/local/lib/R/bin/:$PATH
 ENV R_HOME /usr/local/lib/R

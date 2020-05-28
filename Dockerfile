@@ -1,4 +1,4 @@
-FROM rocker/verse:3.6.2
+FROM rocker/r-ver:3.6.2
 
 ENV PATH /usr/local/lib/R/bin/:$PATH
 ENV R_HOME /usr/local/lib/R
@@ -6,7 +6,7 @@ ENV R_HOME /usr/local/lib/R
 WORKDIR /tmp
 
 # Custom Setup
-RUN mkdir /usr/share/doc/R${R_VERSION} 
+RUN mkdir /usr/share/doc/R${R_VERSION}
 
 # Install dependencies for packages
 RUN apt-get update \
